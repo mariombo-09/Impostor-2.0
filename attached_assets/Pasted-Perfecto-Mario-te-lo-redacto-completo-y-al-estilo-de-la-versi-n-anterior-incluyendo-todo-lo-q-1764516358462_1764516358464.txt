@@ -1,0 +1,81 @@
+Perfecto, Mario, te lo redacto **completo y al estilo de la versión anterior**, incluyendo todo lo que me comentaste: selección de modo, categorías, impostores, número de jugadores, flujo offline y online, turnos, cartas y palabras relacionadas. Esto es listo para enviar a la IA de Replit:
+
+---
+
+**Texto completo para la IA de Replit:**
+
+````
+Quiero crear un juego multijugador estilo “Among Us de cartas” en HTML, CSS y JavaScript que se conecte a mi servidor Node.js desplegado en Render: https://impostorrucamalabs.onrender.com. El juego debe funcionar así:
+
+1. Pantalla inicial:
+   - Preguntar al jugador si quiere jugar en “Clásico (local)” o “Multijugador online”.
+   - Si elige Clásico, el juego se ejecuta en un solo Chromebook.
+   - Si elige Multijugador, mostrar opciones para crear o unirse a una sala con un código.
+
+2. Configuración antes de empezar:
+   - Selección de **categoría de palabras**: Animales, Películas, Objetos, Deportes, Comida, Tecnología o General.
+   - Selección de **número de impostores** (1 a 5).
+   - Selección de **número de jugadores** solo en modo Clásico (local). En multijugador, el número se determina con la cantidad de jugadores que se unan a la sala.
+
+3. Multijugador online:
+   - Cada jugador introduce su **nombre**.
+   - Se muestran todos los nombres en la sala mientras esperan.
+   - El jugador que creó la sala es el **administrador** y tiene un botón “Empezar partida”.
+   - Cuando el admin pulsa “Empezar partida”:
+       - El servidor asigna al azar un jugador como **impostor**.
+       - Asigna a cada jugador una **palabra coherente** según la categoría elegida:
+           - Por ejemplo, si el impostor tiene “Ordenador”, los demás jugadores pueden tener palabras relacionadas como “Teclado”, “Monitor”, “Electricidad”, etc.
+       - Cada jugador recibe **solo su propia carta**: su rol (impostor o civil) y su palabra.
+   - Los turnos se manejan así:
+       - Solo el jugador cuyo turno es puede ver su carta.
+       - Los demás ven en su pantalla: “Turno de: [Jugador X]”.
+       - Cada jugador pulsa un botón “Siguiente” para pasar al siguiente turno, y el servidor actualiza el turno para todos los jugadores.
+   - Al final, cuando todos han visto su carta, mostrar: “Empieza: [Jugador aleatorio]” y dar opción de reiniciar.
+
+4. Modo clásico (offline):
+   - Cada jugador introduce su nombre en el mismo dispositivo.
+   - Asignación de roles y palabras coherentes localmente según categoría e impostores elegidos.
+   - Los turnos funcionan igual que en online, con botón “Siguiente” para pasar al siguiente jugador.
+   - Al final, mostrar mensaje: “Empieza: [Jugador aleatorio]”.
+
+5. Interfaz:
+   - Usar **canvas** para dibujar cartas, nombres, botones y mensajes.
+   - Mostrar carta con rol y palabra solo cuando sea el turno del jugador correspondiente.
+   - Mostrar listas de jugadores en la pantalla de espera y en sala online.
+   - Botones: “Siguiente”, “Empezar partida”, “Crear sala”, “Unirse a sala”.
+
+6. Conexión con servidor (solo multijugador):
+   - Conectar al servidor Render usando Socket.IO:
+```js
+const socket = io("https://impostorrucamalabs.onrender.com");
+````
+
+* Usar eventos:
+
+  * `joinRoom`: para unirse a la sala.
+  * `startGame`: para recibir rol y palabra asignados.
+  * `updateTurn`: para actualizar el turno en todos los clientes.
+  * `nextTurn`: para informar al servidor de pasar al siguiente jugador.
+
+7. Archivos a generar:
+
+   * HTML con la interfaz y canvas.
+   * CSS para los estilos básicos.
+   * JS que maneje:
+
+     * Pantalla inicial y selección de modo.
+     * Configuración de categoría, número de impostores y jugadores.
+     * Entrada a salas y nombres de jugadores.
+     * Conexión con Socket.IO al servidor Render.
+     * Dibujo de cartas, turnos, botones y mensajes en canvas.
+     * Recepción de datos del servidor y actualización del canvas según turno.
+   * Debe funcionar directamente en Replit para probar ambos modos, multijugador online y clásico local.
+
+```
+
+---
+
+Si quieres, puedo hacer **directamente los archivos HTML + JS completos listos para Replit** con todo esto implementado, incluyendo pantalla de selección de modo, configuración, canvas, cartas, turnos y conexión a tu servidor Render.  
+
+¿Quieres que haga eso ahora mismo?
+```
